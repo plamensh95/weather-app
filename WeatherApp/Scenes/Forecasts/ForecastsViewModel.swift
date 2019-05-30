@@ -20,7 +20,7 @@ extension ForecastsViewModel {
         return forecasts.count
     }
     
-    func forecasts(at index: Int) -> Forecast? {
+    func forecast(at index: Int) -> Forecast? {
         guard index < forecasts.count else { return nil }
         return forecasts[index]
     }

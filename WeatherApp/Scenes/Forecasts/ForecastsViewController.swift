@@ -20,6 +20,10 @@ class ForecastsViewController: UIViewController, StoryboardInitializable {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
@@ -44,9 +48,11 @@ extension ForecastsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let forecast = viewModel?.forecast(at: indexPath.row) else { return UITableViewCell() }
         
         if let cell = tableView.dequeueReusableCell(withIdentifier:
             ForecastTableViewCell.reuseIdentifier, for: indexPath) as? ForecastTableViewCell {
+            cell.populate(with: forecast)
             return cell
         }
         

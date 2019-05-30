@@ -18,4 +18,5 @@ struct Forecast: Codable {
     let predictability: Double
     let weatherStateName: String
     let weatherStateAbbr: String
+    let applicableDate: String
 }

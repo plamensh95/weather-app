@@ -60,9 +60,9 @@ class LocationTableViewCell: UITableViewCell {
         guard let forecast = location.consolidatedWeather.first else { return }
         
         weatherStateLabel.text = forecast.weatherStateName
-        minTemperatureLabel.text = String(describing: forecast.minTemp.int)
-        nowTemperatureLabel.text = String(describing: forecast.theTemp.int)
-        maxTemperatureLabel.text = String(describing: forecast.maxTemp.int)
+        minTemperatureLabel.text = String(describing: forecast.minTemp.int).degreesFormatted()
+        nowTemperatureLabel.text = String(describing: forecast.theTemp.int).degreesFormatted()
+        maxTemperatureLabel.text = String(describing: forecast.maxTemp.int).degreesFormatted()
         
         //- TODO: Add images for weather state to project and show the image corresponding to the weather state
     }

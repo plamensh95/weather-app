@@ -41,7 +41,9 @@ class ForecastTableViewCell: UITableViewCell {
     }
     
     func populate(with forecast: Forecast) {
-        //- TODO: Write logic for cell population with forecast
+        dayLabel.text = forecast.applicableDate.date?.dayName()
+        dateLabel.text = forecast.applicableDate
+        temperatureLabel.text = String(describing: forecast.minTemp.int).degreesFormatted()
     }
     
 }
