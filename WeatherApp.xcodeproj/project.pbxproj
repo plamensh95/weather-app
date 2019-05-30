@@ -13,6 +13,9 @@
 		25C14FDC229FA96B00113530 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FDA229FA96B00113530 /* WeatherApp.xcdatamodeld */; };
 		25C14FDE229FA96C00113530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25C14FDD229FA96C00113530 /* Assets.xcassets */; };
 		25C14FE1229FA96C00113530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C14FDF229FA96C00113530 /* LaunchScreen.storyboard */; };
+		25C14FED229FB55600113530 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FEC229FB55600113530 /* Forecast.swift */; };
+		25C14FEF229FB55E00113530 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FEE229FB55E00113530 /* Location.swift */; };
+		25C14FF1229FB56600113530 /* ParentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FF0229FB56600113530 /* ParentLocation.swift */; };
 		56DFFDF3D7A50E4F165D46CE /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05001267C28937C8FFF3E351 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		25C14FDD229FA96C00113530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25C14FE0229FA96C00113530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25C14FE2229FA96C00113530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25C14FEC229FB55600113530 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		25C14FEE229FB55E00113530 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		25C14FF0229FB56600113530 /* ParentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentLocation.swift; sourceTree = "<group>"; };
 		6F6B4DF2B4846FCCA217FBBD /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DC420267DAA384F67448CCE4 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +69,7 @@
 		25C14FD2229FA96B00113530 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				25C14FEA229FB52E00113530 /* Data */,
 				25C14FD3229FA96B00113530 /* AppDelegate.swift */,
 				25C14FD5229FA96B00113530 /* ViewController.swift */,
 				25C14FD7229FA96B00113530 /* Main.storyboard */,
@@ -72,6 +79,24 @@
 				25C14FDA229FA96B00113530 /* WeatherApp.xcdatamodeld */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		25C14FEA229FB52E00113530 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				25C14FEB229FB53500113530 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		25C14FEB229FB53500113530 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25C14FEE229FB55E00113530 /* Location.swift */,
+				25C14FF0229FB56600113530 /* ParentLocation.swift */,
+				25C14FEC229FB55600113530 /* Forecast.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		73E201EB530885E67A20CFF5 /* Pods */ = {
@@ -211,7 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C14FF1229FB56600113530 /* ParentLocation.swift in Sources */,
+				25C14FED229FB55600113530 /* Forecast.swift in Sources */,
 				25C14FDC229FA96B00113530 /* WeatherApp.xcdatamodeld in Sources */,
+				25C14FEF229FB55E00113530 /* Location.swift in Sources */,
 				25C14FD6229FA96B00113530 /* ViewController.swift in Sources */,
 				25C14FD4229FA96B00113530 /* AppDelegate.swift in Sources */,
 			);
