@@ -24,6 +24,11 @@
 		25C1500B229FE52800113530 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1500A229FE52800113530 /* Injector.swift */; };
 		25C1500D229FE54700113530 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1500C229FE54700113530 /* Repository.swift */; };
 		25C15010229FE5BD00113530 /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1500F229FE5BD00113530 /* RemoteRepository.swift */; };
+		25C15013229FE7E400113530 /* ForecastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15012229FE7E400113530 /* ForecastsViewController.swift */; };
+		25C15015229FE7F000113530 /* Forecasts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C15014229FE7F000113530 /* Forecasts.storyboard */; };
+		25C1501A229FE83900113530 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15018229FE83900113530 /* ForecastTableViewCell.swift */; };
+		25C1501B229FE83900113530 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C15019229FE83900113530 /* ForecastTableViewCell.xib */; };
+		25C1501D229FF43C00113530 /* ForecastsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1501C229FF43C00113530 /* ForecastsViewModel.swift */; };
 		56DFFDF3D7A50E4F165D46CE /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05001267C28937C8FFF3E351 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +53,11 @@
 		25C1500A229FE52800113530 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		25C1500C229FE54700113530 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		25C1500F229FE5BD00113530 /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
+		25C15012229FE7E400113530 /* ForecastsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsViewController.swift; sourceTree = "<group>"; };
+		25C15014229FE7F000113530 /* Forecasts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forecasts.storyboard; sourceTree = "<group>"; };
+		25C15018229FE83900113530 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
+		25C15019229FE83900113530 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
+		25C1501C229FF43C00113530 /* ForecastsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsViewModel.swift; sourceTree = "<group>"; };
 		6F6B4DF2B4846FCCA217FBBD /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DC420267DAA384F67448CCE4 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				25C14FF8229FB94300113530 /* Locations */,
+				25C15011229FE7AF00113530 /* Forecasts */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -177,6 +188,34 @@
 				25C1500F229FE5BD00113530 /* RemoteRepository.swift */,
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		25C15011229FE7AF00113530 /* Forecasts */ = {
+			isa = PBXGroup;
+			children = (
+				25C15016229FE81500113530 /* Table Cells */,
+				25C15012229FE7E400113530 /* ForecastsViewController.swift */,
+				25C15014229FE7F000113530 /* Forecasts.storyboard */,
+				25C1501C229FF43C00113530 /* ForecastsViewModel.swift */,
+			);
+			path = Forecasts;
+			sourceTree = "<group>";
+		};
+		25C15016229FE81500113530 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				25C15017229FE81E00113530 /* Forecast Cell */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		25C15017229FE81E00113530 /* Forecast Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25C15018229FE83900113530 /* ForecastTableViewCell.swift */,
+				25C15019229FE83900113530 /* ForecastTableViewCell.xib */,
+			);
+			path = "Forecast Cell";
 			sourceTree = "<group>";
 		};
 		73E201EB530885E67A20CFF5 /* Pods */ = {
@@ -258,8 +297,10 @@
 			files = (
 				25C14FE1229FA96C00113530 /* LaunchScreen.storyboard in Resources */,
 				25C14FDE229FA96C00113530 /* Assets.xcassets in Resources */,
+				25C1501B229FE83900113530 /* ForecastTableViewCell.xib in Resources */,
 				25C15002229FC06400113530 /* LocationTableViewCell.xib in Resources */,
 				25C14FFC229FBA5F00113530 /* Locations.storyboard in Resources */,
+				25C15015229FE7F000113530 /* Forecasts.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,10 +361,13 @@
 				25C14FF1229FB56600113530 /* ParentLocation.swift in Sources */,
 				25C15004229FD50B00113530 /* CardView.swift in Sources */,
 				25C14FED229FB55600113530 /* Forecast.swift in Sources */,
+				25C15013229FE7E400113530 /* ForecastsViewController.swift in Sources */,
 				25C15010229FE5BD00113530 /* RemoteRepository.swift in Sources */,
 				25C15009229FE3A000113530 /* LocationsViewModel.swift in Sources */,
+				25C1501A229FE83900113530 /* ForecastTableViewCell.swift in Sources */,
 				25C15001229FC06400113530 /* LocationTableViewCell.swift in Sources */,
 				25C1500B229FE52800113530 /* Injector.swift in Sources */,
+				25C1501D229FF43C00113530 /* ForecastsViewModel.swift in Sources */,
 				25C14FDC229FA96B00113530 /* WeatherApp.xcdatamodeld in Sources */,
 				25C14FFA229FB9C500113530 /* LocationsViewController.swift in Sources */,
 				25C14FEF229FB55E00113530 /* Location.swift in Sources */,

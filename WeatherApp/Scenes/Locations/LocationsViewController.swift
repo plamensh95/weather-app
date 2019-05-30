@@ -12,7 +12,7 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    var viewModel: LocationsViewModel!
+    var viewModel: LocationsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,12 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+    }
+    
+    private func navigateToForecastsScreen(with forecasts: [Forecast]) {
+        let forecastsVC = ForecastsViewController.initFrom(storyboard: .Forecasts)
+        forecastsVC.viewModel = ForecastsViewModel(forecasts: forecasts)
+        navigationController?.pushViewController(forecastsVC)
     }
 
 }
@@ -47,11 +53,11 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(inSection: section)
+        return viewModel?.numberOfRows(inSection: section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let location = viewModel.location(at: indexPath.row) else { return UITableViewCell() }
+        guard let location = viewModel?.location(at: indexPath.row) else { return UITableViewCell() }
         
         if let cell = tableView.dequeueReusableCell(withIdentifier:
             LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell {
@@ -60,5 +66,10 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let forecasts = viewModel?.forecastsForLocation(at: indexPath.row) else { return }
+        navigateToForecastsScreen(with: forecasts)
     }
 }

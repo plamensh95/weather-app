@@ -26,4 +26,9 @@ extension LocationsViewModel {
         guard index < locations.count else { return nil }
         return locations[index]
     }
+    
+    func forecastsForLocation(at index: Int) -> [Forecast]? {
+        guard index < locations.count else { return nil }
+        return locations[index].consolidatedWeather
+    }
 }
