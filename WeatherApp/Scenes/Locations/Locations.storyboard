@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,12 +13,29 @@
         <scene sceneID="vk9-uo-18z">
             <objects>
                 <viewController storyboardIdentifier="LocationsViewController" id="9zu-uw-Hux" customClass="LocationsViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KHm-cR-i5g"/>
+                        <viewControllerLayoutGuide type="bottom" id="iAK-e9-cE8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YSG-o5-brK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.98039215690000003" green="0.12941176469999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="dbU-Mk-2tM"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-Om-jpw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uZw-Om-jpw" secondAttribute="trailing" id="BEK-tE-jY2"/>
+                            <constraint firstItem="uZw-Om-jpw" firstAttribute="leading" secondItem="YSG-o5-brK" secondAttribute="leading" id="DuZ-QG-cAY"/>
+                            <constraint firstItem="uZw-Om-jpw" firstAttribute="top" secondItem="KHm-cR-i5g" secondAttribute="bottom" id="l0d-HH-h7B"/>
+                            <constraint firstAttribute="bottom" secondItem="uZw-Om-jpw" secondAttribute="bottom" id="qEb-K1-Ogs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="uZw-Om-jpw" id="lxO-LE-r5V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYL-Yf-3b1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
