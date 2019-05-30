@@ -13,4 +13,7 @@ class Repository {
         self.remoteRepository = remoteRepository
     }
     
+    func getLocations(with woeIds: [Int], completion: @escaping (Result) -> ()) {
+        return remoteRepository.getLocations(with: woeIds, completion: completion)
+    }
 }

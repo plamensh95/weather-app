@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let rootViewController = LocationsViewController.initFrom(storyboard: .Locations)
-        let rootViewController = ForecastsViewController.initFrom(storyboard: .Forecasts)
+        let rootViewController = LocationsViewController.initFrom(storyboard: .Locations)
         setupWindow(with: rootViewController)
         return true
     }

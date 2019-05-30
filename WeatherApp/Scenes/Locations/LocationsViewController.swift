@@ -20,6 +20,11 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
         setupUI()
         
         viewModel = LocationsViewModel()
+        viewModel?.updateUI = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

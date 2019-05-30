@@ -15,4 +15,8 @@ class Injector {
     class func injectRemoteRepositoryDependency() -> RemoteRepository {
         return RemoteRepository()
     }
+    
+    class func injectAPIClientDependency() -> APIClient {
+        return APIClient()
+    }
 }

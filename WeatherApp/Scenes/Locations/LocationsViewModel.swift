@@ -9,10 +9,27 @@
 class LocationsViewModel {
     private let repository: Repository
     
-    private var locations = [Location]()
+    private var locations = [Location]() {
+        didSet {
+            updateUI?()
+        }
+    }
+    
+    var updateUI: (() -> ())?
     
     init(repository: Repository = Injector.injectRepositoryDependency()) {
         self.repository = repository
+        
+        repository.getLocations(with: WoeId.woeIdsOfInterest) { result in
+            switch result {
+            case .success(let value):
+                if let fetchedLocation = value as? Location {
+                    self.locations = [fetchedLocation]
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

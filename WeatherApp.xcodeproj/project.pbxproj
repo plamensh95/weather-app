@@ -29,6 +29,9 @@
 		25C1501A229FE83900113530 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15018229FE83900113530 /* ForecastTableViewCell.swift */; };
 		25C1501B229FE83900113530 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C15019229FE83900113530 /* ForecastTableViewCell.xib */; };
 		25C1501D229FF43C00113530 /* ForecastsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1501C229FF43C00113530 /* ForecastsViewModel.swift */; };
+		25C1501F229FFBD900113530 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1501E229FFBD900113530 /* APIClient.swift */; };
+		25C15021229FFC1F00113530 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15020229FFC1F00113530 /* Constants.swift */; };
+		25C15023229FFC4C00113530 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15022229FFC4C00113530 /* Result.swift */; };
 		56DFFDF3D7A50E4F165D46CE /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05001267C28937C8FFF3E351 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		25C15018229FE83900113530 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		25C15019229FE83900113530 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
 		25C1501C229FF43C00113530 /* ForecastsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsViewModel.swift; sourceTree = "<group>"; };
+		25C1501E229FFBD900113530 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		25C15020229FFC1F00113530 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		25C15022229FFC4C00113530 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		6F6B4DF2B4846FCCA217FBBD /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DC420267DAA384F67448CCE4 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,8 @@
 			children = (
 				25C14FF5229FB85900113530 /* Storyboard+Initializable.swift */,
 				25C1500A229FE52800113530 /* Injector.swift */,
+				25C15020229FFC1F00113530 /* Constants.swift */,
+				25C15022229FFC4C00113530 /* Result.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				25C1500F229FE5BD00113530 /* RemoteRepository.swift */,
+				25C1501E229FFBD900113530 /* APIClient.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -359,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25C14FF1229FB56600113530 /* ParentLocation.swift in Sources */,
+				25C1501F229FFBD900113530 /* APIClient.swift in Sources */,
+				25C15023229FFC4C00113530 /* Result.swift in Sources */,
 				25C15004229FD50B00113530 /* CardView.swift in Sources */,
 				25C14FED229FB55600113530 /* Forecast.swift in Sources */,
 				25C15013229FE7E400113530 /* ForecastsViewController.swift in Sources */,
@@ -374,6 +385,7 @@
 				25C14FF6229FB85900113530 /* Storyboard+Initializable.swift in Sources */,
 				25C14FD4229FA96B00113530 /* AppDelegate.swift in Sources */,
 				25C1500D229FE54700113530 /* Repository.swift in Sources */,
+				25C15021229FFC1F00113530 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
