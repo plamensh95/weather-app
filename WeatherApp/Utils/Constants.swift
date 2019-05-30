@@ -8,6 +8,7 @@
 
 struct APIEndpoints {
     static let kLocation = "https://www.metaweather.com/api/location"
+    static let kStaticImageResource = "https://www.metaweather.com/static/img/weather/png/64"
 }
 
 struct Message {

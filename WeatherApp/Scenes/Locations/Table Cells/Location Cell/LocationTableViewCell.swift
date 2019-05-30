@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class LocationTableViewCell: UITableViewCell {
     
@@ -59,10 +60,17 @@ class LocationTableViewCell: UITableViewCell {
         
         guard let forecast = location.consolidatedWeather.first else { return }
         
+        let imageURLString = "\(APIEndpoints.kStaticImageResource)/\(forecast.weatherStateAbbr).png"
+        if let imageURL = URL(string: imageURLString) {
+            weatherStateImageView.sd_setImage(with: imageURL)
+        }
+        
         weatherStateLabel.text = forecast.weatherStateName
         minTemperatureLabel.text = String(describing: forecast.minTemp.int).degreesFormatted()
         nowTemperatureLabel.text = String(describing: forecast.theTemp.int).degreesFormatted()
         maxTemperatureLabel.text = String(describing: forecast.maxTemp.int).degreesFormatted()
+        
+        
         
         //- TODO: Add images for weather state to project and show the image corresponding to the weather state
     }

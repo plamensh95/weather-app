@@ -1,4 +1,7 @@
 PODS:
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
   - SwifterSwift (5.0.0):
     - SwifterSwift/AppKit (= 5.0.0)
     - SwifterSwift/CoreGraphics (= 5.0.0)
@@ -20,15 +23,18 @@ PODS:
   - SwifterSwift/UIKit (5.0.0)
 
 DEPENDENCIES:
+  - SDWebImage (~> 4.0)
   - SwifterSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - SDWebImage
     - SwifterSwift
 
 SPEC CHECKSUMS:
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
 
-PODFILE CHECKSUM: 402f68bf29c61e1c2be262bfbcd13b64b5996990
+PODFILE CHECKSUM: 26d1da279b4ae2f9185ad83dfae6a3062f9da243
 
 COCOAPODS: 1.5.0
