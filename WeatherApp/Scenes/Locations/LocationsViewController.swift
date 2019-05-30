@@ -12,10 +12,14 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
     
+    var viewModel: LocationsViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupUI()
+        
+        viewModel = LocationsViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +35,6 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
 
 //MARK: - TableView Methods
 extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,16 +47,18 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfRows(inSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let location = viewModel.location(at: indexPath.row) else { return UITableViewCell() }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier:
             LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell {
+            cell.populate(with: location)
             return cell
         }
         
         return UITableViewCell()
     }
-    
 }
