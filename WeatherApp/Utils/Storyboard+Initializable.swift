@@ -11,7 +11,7 @@ import UIKit
 enum Storyboard:String {
     case Locations
     case Forecasts
-    case ForecastDetails
+    case Details
 }
 
 protocol StoryboardInitializable {

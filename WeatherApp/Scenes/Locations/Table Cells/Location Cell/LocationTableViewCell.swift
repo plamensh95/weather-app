@@ -52,6 +52,11 @@ class LocationTableViewCell: UITableViewCell {
         minTemperatureLabel.font = UIFont.systemFont(ofSize: 24)
         nowTemperatureLabel.font = UIFont.systemFont(ofSize: 36)
         maxTemperatureLabel.font = UIFont.systemFont(ofSize: 24)
+        
+        locationLabel.adjustsFontSizeToFitWidth = true
+        minTemperatureLabel.adjustsFontSizeToFitWidth = true
+        nowTemperatureLabel.adjustsFontSizeToFitWidth = true
+        maxTemperatureLabel.adjustsFontSizeToFitWidth = true
     }
     
     func populate(with location: Location) {
@@ -60,7 +65,7 @@ class LocationTableViewCell: UITableViewCell {
         
         guard let forecast = location.consolidatedWeather.first else { return }
         
-        let imageURLString = "\(APIEndpoints.kStaticImageResource)/\(forecast.weatherStateAbbr).png"
+        let imageURLString = "\(APIEndpoints.kStaticImageResourcePNG64)/\(forecast.weatherStateAbbr).png"
         if let imageURL = URL(string: imageURLString) {
             weatherStateImageView.sd_setImage(with: imageURL)
         }
@@ -69,9 +74,5 @@ class LocationTableViewCell: UITableViewCell {
         minTemperatureLabel.text = String(describing: forecast.minTemp.int).degreesFormatted()
         nowTemperatureLabel.text = String(describing: forecast.theTemp.int).degreesFormatted()
         maxTemperatureLabel.text = String(describing: forecast.maxTemp.int).degreesFormatted()
-        
-        
-        
-        //- TODO: Add images for weather state to project and show the image corresponding to the weather state
     }
 }

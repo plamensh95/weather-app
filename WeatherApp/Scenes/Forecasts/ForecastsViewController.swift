@@ -28,6 +28,12 @@ class ForecastsViewController: UIViewController, StoryboardInitializable {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
     }
+    
+    private func navigateToForecastDetailsScreen(with forecast: Forecast) {
+        let detailsVC = DetailsViewController.initFrom(storyboard: .Details)
+        detailsVC.viewModel = DetailsViewModel(forecast: forecast)
+        navigationController?.pushViewController(detailsVC)
+    }
 }
 
 //MARK: - TableView Methods
@@ -57,5 +63,10 @@ extension ForecastsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let forecast = viewModel?.forecast(at: indexPath.row) else { return }
+        navigateToForecastDetailsScreen(with: forecast)
     }
 }

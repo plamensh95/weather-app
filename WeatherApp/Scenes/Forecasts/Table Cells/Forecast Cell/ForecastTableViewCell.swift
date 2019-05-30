@@ -38,13 +38,17 @@ class ForecastTableViewCell: UITableViewCell {
         dayLabel.font = UIFont.boldSystemFont(ofSize: 21)
         dateLabel.font = UIFont.systemFont(ofSize: 15)
         temperatureLabel.font = UIFont.systemFont(ofSize: 30)
+        
+        dayLabel.adjustsFontSizeToFitWidth = true
+        dateLabel.adjustsFontSizeToFitWidth = true
+        temperatureLabel.adjustsFontSizeToFitWidth = true
     }
     
     func populate(with forecast: Forecast) {
         dayLabel.text = forecast.applicableDate.date?.dayName()
         dateLabel.text = forecast.applicableDate
         temperatureLabel.text = String(describing: forecast.minTemp.int).degreesFormatted()
-        let imageURLString = "\(APIEndpoints.kStaticImageResource)/\(forecast.weatherStateAbbr).png"
+        let imageURLString = "\(APIEndpoints.kStaticImageResourcePNG64)/\(forecast.weatherStateAbbr).png"
         if let imageURL = URL(string: imageURLString) {
             weatherStateImageView.sd_setImage(with: imageURL)
         }
