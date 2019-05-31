@@ -20,9 +20,15 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
         setupUI()
         
         viewModel = LocationsViewModel()
-        viewModel?.updateUI = { [weak self] () in
+        viewModel?.updateUI = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+            }
+        }
+        viewModel?.displayErrorMessage = { errorMessage in
+            DispatchQueue.main.async {
+                UIAlertController(title: Message.kErrorOccurred, message: errorMessage,
+                                  defaultActionButtonTitle: Message.kOK, tintColor: .blue).show()
             }
         }
     }

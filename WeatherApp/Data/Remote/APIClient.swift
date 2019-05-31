@@ -9,10 +9,9 @@ import Foundation
 
 class APIClient {
     
-    func getLocations(with parameters: [String], completion: @escaping (Result) -> ()) {
-        
-        guard let firstLocationParameter = parameters.first,
-            let url = buildURL(with: [firstLocationParameter]) else {
+    func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
+
+        guard let url = URL(string: "\(APIEndpoints.kLocation)/\(String(describing: woeId))") else {
             completion(.failure(.noConnection))
             return
         }
@@ -45,15 +44,5 @@ class APIClient {
             }
             
             }.resume()
-    }
-    
-    private func buildURL(with parameters: [String]) -> URL? {
-        var endpoint = APIEndpoints.kLocation
-        
-        parameters.forEach {
-            endpoint += "/\($0)"
-        }
-        
-        return URL(string: endpoint)
     }
 }

@@ -13,6 +13,8 @@ struct APIEndpoints {
 }
 
 struct Message {
+    static let kOK = "OK"
+    static let kErrorOccurred = "An error occurred"
     static let kReachServerError = "Couldn't reach server."
     static let kParseServerResponseError = "Couldn't parse server response."
 }

@@ -5,6 +5,7 @@
 //  Created by Plamen Iliev on 30.05.19.
 //  Copyright © 2019 Plamen SH. All rights reserved.
 //
+import Dispatch
 
 class Repository {
     private let remoteRepository: RemoteRepository
@@ -14,6 +15,8 @@ class Repository {
     }
     
     func getLocations(with woeIds: [Int], completion: @escaping (Result) -> ()) {
-        return remoteRepository.getLocations(with: woeIds, completion: completion)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            return self?.remoteRepository.getLocations(with: woeIds, completion: completion)
+        }
     }
 }

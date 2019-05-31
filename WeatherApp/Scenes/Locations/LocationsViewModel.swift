@@ -16,6 +16,7 @@ class LocationsViewModel {
     }
     
     var updateUI: (() -> ())?
+    var displayErrorMessage: ((String) -> ())?
     
     init(repository: Repository = Injector.injectRepositoryDependency()) {
         self.repository = repository
@@ -23,11 +24,11 @@ class LocationsViewModel {
         repository.getLocations(with: WoeId.woeIdsOfInterest) { result in
             switch result {
             case .success(let value):
-                if let fetchedLocation = value as? Location {
-                    self.locations = [fetchedLocation]
+                if let fetchedLocations = value as? [Location] {
+                    self.locations = fetchedLocations
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayErrorMessage?(error.localizedDescription)
             }
         }
     }
