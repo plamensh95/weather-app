@@ -13,6 +13,7 @@ class DetailsViewModel {
     
     var updateUI: ((Forecast) -> ())?
     
+    // MARK: - Initialization
     init(forecast: Forecast) {
         self.forecast = forecast
         detailsArray = buildDetailsArray(from: forecast)

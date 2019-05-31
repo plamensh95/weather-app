@@ -16,12 +16,14 @@ class CardView: UIView {
         setup()
     }
     
+    // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
     }
     
+    // MARK: - Setup
     func setup() {
         backgroundColor = .clear
         layer.masksToBounds = false

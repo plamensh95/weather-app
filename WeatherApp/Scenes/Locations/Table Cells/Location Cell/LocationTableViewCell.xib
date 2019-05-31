@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="1" id="EBU-4k-Bll"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-cY-sNt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-cY-sNt">
                                         <rect key="frame" x="0.0" y="66.5" width="270" height="53"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YSm-4N-XtS">
@@ -97,7 +97,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2v-tN-CE8">
-                                                <rect key="frame" x="107.5" y="0.0" width="53" height="53"/>
+                                                <rect key="frame" x="106" y="0.0" width="53" height="53"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2Bu-dP-o31">
                                                         <rect key="frame" x="8" y="8" width="37" height="37"/>
@@ -122,7 +122,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="2Bu-dP-o31" secondAttribute="bottom" constant="8" id="AQa-Sw-xhH"/>
                                                     <constraint firstItem="2Bu-dP-o31" firstAttribute="top" secondItem="A2v-tN-CE8" secondAttribute="top" constant="8" id="Ofk-pC-XJK"/>
                                                     <constraint firstAttribute="trailing" secondItem="2Bu-dP-o31" secondAttribute="trailing" constant="8" id="VWZ-a5-RoP"/>
-                                                    <constraint firstAttribute="width" secondItem="A2v-tN-CE8" secondAttribute="height" multiplier="1:1" id="Z0k-aN-gsn"/>
+                                                    <constraint firstAttribute="width" secondItem="A2v-tN-CE8" secondAttribute="height" multiplier="1:1" id="fbP-sZ-Wd9"/>
                                                     <constraint firstItem="2Bu-dP-o31" firstAttribute="leading" secondItem="A2v-tN-CE8" secondAttribute="leading" constant="8" id="yxK-j6-oY8"/>
                                                 </constraints>
                                             </view>
@@ -144,10 +144,6 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="YSm-4N-XtS" firstAttribute="leading" secondItem="VWf-cY-sNt" secondAttribute="leading" id="U0H-Nf-gGU"/>
-                                            <constraint firstAttribute="bottom" secondItem="A2v-tN-CE8" secondAttribute="bottom" id="XQ4-TQ-gYX"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>

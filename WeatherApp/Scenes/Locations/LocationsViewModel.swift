@@ -18,6 +18,7 @@ class LocationsViewModel {
     var updateUI: (() -> ())?
     var displayErrorMessage: ((String) -> ())?
     
+    // MARK: - Initialization
     init(repository: Repository = Injector.injectRepositoryDependency()) {
         self.repository = repository
     }

@@ -18,17 +18,25 @@ class ForecastsViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
         setupTableView()
         setupUI()
+        setupVM()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
-    }
-    
+    // MARK: - Setup
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
     }
     
+    private func setupVM() {
+        viewModel?.updateUI = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        viewModel?.feedContent()
+    }
+    
+    // MARK: - Navigation
     private func navigateToForecastDetailsScreen(with forecast: Forecast) {
         let detailsVC = DetailsViewController.initFrom(storyboard: .Details)
         detailsVC.viewModel = DetailsViewModel(forecast: forecast)

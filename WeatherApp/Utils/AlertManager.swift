@@ -27,6 +27,7 @@ class AlertManager {
         alert.addAction(title: Title.kGO, style: .default, isEnabled: true) { action in
             inputCompletion(alert.textFields?.first?.text)
         }
+        alert.addAction(UIAlertAction(title: Title.kCancel, style: .cancel, handler: nil))
         alert.show()
     }
 }

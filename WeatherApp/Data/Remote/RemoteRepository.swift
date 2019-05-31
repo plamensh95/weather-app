@@ -12,8 +12,25 @@ class RemoteRepository{
 
     private let dispatchGroup = DispatchGroup()
     
+    // MARK: - Initialization
     init(apiClient: APIClient = Injector.injectAPIClientDependency()) {
         self.apiClient = apiClient
+    }
+    
+    // MARK: - API Calls
+    func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
+        apiClient.getLocation(with: woeId) { result in
+            switch result {
+            case .success(let value):
+                if let data = value as? Data, let parsedLocation = self.parse(data, returning: Location.self) {
+                    completion(.success(parsedLocation))
+                } else {
+                    completion(.failure(.couldntParse))
+                }
+            case .failure:
+                completion(result)
+            }
+        }
     }
     
     func getLocations(with woeIds: [Int], completion: @escaping (Result) -> ()) {
@@ -46,21 +63,7 @@ class RemoteRepository{
         }
     }
     
-    func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
-        apiClient.getLocation(with: woeId) { result in
-            switch result {
-            case .success(let value):
-                if let data = value as? Data, let parsedLocation = self.parse(data, returning: Location.self) {
-                    completion(.success(parsedLocation))
-                } else {
-                    completion(.failure(.couldntParse))
-                }
-            case .failure:
-                completion(result)
-            }
-        }
-    }
-    
+    // MARK: - Decode Data
     private func parse<T: Decodable>(_ data: Data, returning type: T.Type) -> T? {
         do {
             let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)

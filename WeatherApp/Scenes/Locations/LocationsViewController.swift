@@ -11,6 +11,7 @@ import UIKit
 class LocationsViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     lazy var addLocationButton = UIBarButtonItem(title: Title.kAddLocation, style: .plain,
                                                  target: self, action: #selector(addLocation))
@@ -33,12 +34,14 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.setRightBarButton(addLocationButton, animated: true)
+        activityIndicator.startAnimating()
     }
     
     // MARK: - Setup
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        activityIndicator.hidesWhenStopped = true
     }
     
     private func setupVM() {
@@ -46,6 +49,7 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
+                self?.activityIndicator.stopAnimating()
             }
         }
         viewModel?.displayErrorMessage = { errorMessage in

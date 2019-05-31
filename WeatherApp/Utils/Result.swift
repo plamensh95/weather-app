@@ -14,7 +14,7 @@ enum Result {
 }
 
 enum CustomError: Error {
-    case noConnection
+    case couldntReach
     case couldntParse
     case error(Error)
     case other(String)
@@ -23,7 +23,7 @@ enum CustomError: Error {
 extension CustomError: LocalizedError {
     var localizedDescription: String {
         switch self {
-        case .noConnection:
+        case .couldntReach:
             return Message.kReachServerError
         case .couldntParse:
             return Message.kParseServerResponseError

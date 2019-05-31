@@ -25,15 +25,21 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BTA-wk-uTu">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uZw-Om-jpw" secondAttribute="trailing" id="BEK-tE-jY2"/>
                             <constraint firstItem="uZw-Om-jpw" firstAttribute="leading" secondItem="YSG-o5-brK" secondAttribute="leading" id="DuZ-QG-cAY"/>
+                            <constraint firstItem="BTA-wk-uTu" firstAttribute="centerY" secondItem="YSG-o5-brK" secondAttribute="centerY" id="Z00-dg-jSu"/>
                             <constraint firstItem="uZw-Om-jpw" firstAttribute="top" secondItem="KHm-cR-i5g" secondAttribute="bottom" id="l0d-HH-h7B"/>
                             <constraint firstAttribute="bottom" secondItem="uZw-Om-jpw" secondAttribute="bottom" id="qEb-K1-Ogs"/>
+                            <constraint firstItem="BTA-wk-uTu" firstAttribute="centerX" secondItem="YSG-o5-brK" secondAttribute="centerX" id="sgh-me-92p"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="BTA-wk-uTu" id="iSh-0H-2u2"/>
                         <outlet property="tableView" destination="uZw-Om-jpw" id="lxO-LE-r5V"/>
                     </connections>
                 </viewController>

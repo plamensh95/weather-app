@@ -9,7 +9,6 @@
 import UIKit
 
 class ForecastTableViewCell: UITableViewCell {
-
     static let nib = UINib(nibName: "ForecastTableViewCell", bundle: nil)
     static let reuseIdentifier = "cellReuseIdentifier_ForecastTableViewCell"
     static let kEstimatedRowHeight: CGFloat = 80.0
@@ -24,6 +23,7 @@ class ForecastTableViewCell: UITableViewCell {
         setupUI()
     }
     
+    // MARK: - Setup
     private func setupUI() {
         setupBackgroundAppearances()
         setupTextAppearances()
@@ -44,6 +44,7 @@ class ForecastTableViewCell: UITableViewCell {
         temperatureLabel.adjustsFontSizeToFitWidth = true
     }
     
+    // MARK: - Population
     func populate(with forecast: Forecast) {
         dayLabel.text = forecast.applicableDate.date?.dayName()
         dateLabel.text = forecast.applicableDate

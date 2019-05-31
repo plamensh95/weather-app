@@ -1,5 +1,5 @@
 //
-//  UserDefaults+Extenesions.swift
+//  UserDefaults+Extensions.swift
 //  WeatherApp
 //
 //  Created by Plamen Iliev on 31.05.19.

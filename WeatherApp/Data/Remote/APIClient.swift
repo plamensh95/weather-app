@@ -12,7 +12,7 @@ class APIClient {
     func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
 
         guard let url = URL(string: "\(APIEndpoints.kLocation)/\(String(describing: woeId))") else {
-            completion(.failure(.noConnection))
+            completion(.failure(.couldntReach))
             return
         }
         
@@ -21,13 +21,12 @@ class APIClient {
         })
     }
     
+    // MARK: - API Requests
     private func sendGetRequest(with url: URL, completion: @escaping (Result) -> ()) {
-        
-        print("URL - \(url)")
-        
+
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let safeData = data else {
-                completion(.failure(.noConnection))
+                completion(.failure(.couldntReach))
                 return
             }
             
@@ -35,12 +34,12 @@ class APIClient {
                 if 200..<300 ~= httpResponse.statusCode {
                     completion(.success(safeData))
                 } else {
-                    completion(.failure(.noConnection))
+                    completion(.failure(.couldntReach))
                 }
             } else if let err = error {
                 completion(.failure(.error(err)))
             } else {
-                completion(.failure(.noConnection))
+                completion(.failure(.couldntReach))
             }
             
             }.resume()

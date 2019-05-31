@@ -10,7 +10,6 @@ import UIKit
 import SDWebImage
 
 class LocationTableViewCell: UITableViewCell {
-    
     static let nib = UINib(nibName: "LocationTableViewCell", bundle: nil)
     static let reuseIdentifier = "cellReuseIdentifier_LocationTableViewCell"
     static let kEstimatedRowHeight: CGFloat = 130.0
@@ -30,6 +29,7 @@ class LocationTableViewCell: UITableViewCell {
         setupUI()
     }
     
+    // MARK: - Setup
     private func setupUI() {
         setupBackgroundAppearances()
         setupTextAppearances()
@@ -39,7 +39,6 @@ class LocationTableViewCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         nowTemperatureView.cornerRadius = nowTemperatureView.width / 2
-        
         nowTemperatureView.borderWidth = 4
         nowTemperatureView.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         nowTemperatureView.backgroundColor = #colorLiteral(red: 0.9982376695, green: 0.9481393695, blue: 0.005767893046, alpha: 1)
@@ -52,13 +51,14 @@ class LocationTableViewCell: UITableViewCell {
         minTemperatureLabel.font = UIFont.systemFont(ofSize: 24)
         nowTemperatureLabel.font = UIFont.systemFont(ofSize: 36)
         maxTemperatureLabel.font = UIFont.systemFont(ofSize: 24)
-        
+
         locationLabel.adjustsFontSizeToFitWidth = true
         minTemperatureLabel.adjustsFontSizeToFitWidth = true
         nowTemperatureLabel.adjustsFontSizeToFitWidth = true
         maxTemperatureLabel.adjustsFontSizeToFitWidth = true
     }
     
+    // MARK: - Population
     func populate(with location: Location) {
         locationLabel.text = location.title
         parentLocationLabel.text = location.parent.title

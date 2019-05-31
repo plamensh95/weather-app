@@ -9,8 +9,15 @@
 class ForecastsViewModel {
     private var forecasts: [Forecast]
     
+    var updateUI: (() -> ())?
+    
+    // MARK: - Initialization
     init(forecasts: [Forecast]) {
         self.forecasts = forecasts
+    }
+    
+    func feedContent() {
+        updateUI?()
     }
 }
 

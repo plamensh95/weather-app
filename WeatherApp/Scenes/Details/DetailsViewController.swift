@@ -27,17 +27,10 @@ class DetailsViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
         setupTableView()
         setupUI()
-        
-        viewModel?.updateUI = { [weak self] forecast in
-            DispatchQueue.main.async {
-                self?.populateUI(with: forecast)
-                self?.tableView.reloadData()
-            }
-        }
-        
-        viewModel?.feedContent()
+        setupVM()
     }
     
+    // MARK: - Setup
     private func setupUI() {
         setupBackgroundAppearances()
         setupTextAppearances()
@@ -56,6 +49,16 @@ class DetailsViewController: UIViewController, StoryboardInitializable {
         minTemperatureLabel.font = UIFont.boldSystemFont(ofSize: 32)
         nowTemperatureLabel.font = UIFont.boldSystemFont(ofSize: 32)
         maxTemperatureLabel.font = UIFont.boldSystemFont(ofSize: 32)
+    }
+    
+    private func setupVM() {
+        viewModel?.updateUI = { [weak self] forecast in
+            DispatchQueue.main.async {
+                self?.populateUI(with: forecast)
+                self?.tableView.reloadData()
+            }
+        }
+        viewModel?.feedContent()
     }
     
     private func populateUI(with forecast: Forecast) {

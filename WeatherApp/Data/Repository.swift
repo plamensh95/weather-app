@@ -10,6 +10,7 @@ import Foundation
 class Repository {
     private let remoteRepository: RemoteRepository
     
+    // MARK: - Initialization
     init(remoteRepository: RemoteRepository = Injector.injectRemoteRepositoryDependency()) {
         self.remoteRepository = remoteRepository
     }
