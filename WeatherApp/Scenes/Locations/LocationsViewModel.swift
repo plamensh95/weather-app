@@ -20,7 +20,9 @@ class LocationsViewModel {
     
     init(repository: Repository = Injector.injectRepositoryDependency()) {
         self.repository = repository
-        
+    }
+    
+    func feedContent() {
         repository.getLocations(with: WoeId.woeIdsOfInterest) { result in
             switch result {
             case .success(let value):

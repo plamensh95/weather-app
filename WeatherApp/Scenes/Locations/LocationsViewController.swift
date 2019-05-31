@@ -12,25 +12,20 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(reloadContent), for: .valueChanged)
+        return refreshControl
+    }()
+    
     var viewModel: LocationsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupUI()
-        
-        viewModel = LocationsViewModel()
-        viewModel?.updateUI = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
-        viewModel?.displayErrorMessage = { errorMessage in
-            DispatchQueue.main.async {
-                UIAlertController(title: Message.kErrorOccurred, message: errorMessage,
-                                  defaultActionButtonTitle: Message.kOK, tintColor: .blue).show()
-            }
-        }
+        setupVM()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,12 +37,31 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
     }
     
+    private func setupVM() {
+        viewModel?.updateUI = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
+        }
+        viewModel?.displayErrorMessage = { errorMessage in
+            DispatchQueue.main.async {
+                UIAlertController(title: Message.kErrorOccurred, message: errorMessage,
+                                  defaultActionButtonTitle: Message.kOK, tintColor: .blue).show()
+            }
+        }
+        viewModel?.feedContent()
+    }
+    
+    @objc private func reloadContent() {
+        viewModel?.feedContent()
+    }
+    
     private func navigateToForecastsScreen(with forecasts: [Forecast]) {
         let forecastsVC = ForecastsViewController.initFrom(storyboard: .Forecasts)
         forecastsVC.viewModel = ForecastsViewModel(forecasts: forecasts)
         navigationController?.pushViewController(forecastsVC)
     }
-
 }
 
 //MARK: - TableView Methods
@@ -55,6 +69,7 @@ extension LocationsViewController: UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl = refreshControl
         tableView.register(LocationTableViewCell.nib, forCellReuseIdentifier: LocationTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = LocationTableViewCell.kEstimatedRowHeight
     }
