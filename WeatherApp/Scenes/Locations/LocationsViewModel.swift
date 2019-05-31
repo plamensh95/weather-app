@@ -23,7 +23,7 @@ class LocationsViewModel {
     }
     
     func feedContent() {
-        repository.getLocations(with: WoeId.woeIdsOfInterest) { result in
+        repository.getLocations() { result in
             switch result {
             case .success(let value):
                 if let fetchedLocations = value as? [Location] {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25413BA522A121AA00C84CDA /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25413BA422A121AA00C84CDA /* AlertManager.swift */; };
+		25413BB622A1371000C84CDA /* UserDefaults+Extenesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25413BB522A1371000C84CDA /* UserDefaults+Extenesions.swift */; };
 		25C14FD4229FA96B00113530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FD3229FA96B00113530 /* AppDelegate.swift */; };
 		25C14FDC229FA96B00113530 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C14FDA229FA96B00113530 /* WeatherApp.xcdatamodeld */; };
 		25C14FDE229FA96C00113530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25C14FDD229FA96C00113530 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		05001267C28937C8FFF3E351 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25413BA422A121AA00C84CDA /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		25413BB522A1371000C84CDA /* UserDefaults+Extenesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extenesions.swift"; sourceTree = "<group>"; };
 		25C14FD0229FA96B00113530 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C14FD3229FA96B00113530 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25C14FDB229FA96B00113530 /* WeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherApp.xcdatamodel; sourceTree = "<group>"; };
@@ -149,9 +151,10 @@
 		25C14FF4229FB74500113530 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				25C14FF5229FB85900113530 /* Storyboard+Initializable.swift */,
 				25C1502422A0046300113530 /* String+Extensions.swift */,
 				25C1502D22A0252300113530 /* Double+Extensions.swift */,
+				25413BB522A1371000C84CDA /* UserDefaults+Extenesions.swift */,
+				25C14FF5229FB85900113530 /* Storyboard+Initializable.swift */,
 				25C1500A229FE52800113530 /* Injector.swift */,
 				25C15020229FFC1F00113530 /* Constants.swift */,
 				25C15022229FFC4C00113530 /* Result.swift */,
@@ -419,6 +422,7 @@
 				25C14FD4229FA96B00113530 /* AppDelegate.swift in Sources */,
 				25C1502E22A0252300113530 /* Double+Extensions.swift in Sources */,
 				25C1500D229FE54700113530 /* Repository.swift in Sources */,
+				25413BB622A1371000C84CDA /* UserDefaults+Extenesions.swift in Sources */,
 				25C15021229FFC1F00113530 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,7 @@
 //  Created by Plamen Iliev on 30.05.19.
 //  Copyright © 2019 Plamen SH. All rights reserved.
 //
-import Dispatch
+import Foundation
 
 class Repository {
     private let remoteRepository: RemoteRepository
@@ -14,15 +14,26 @@ class Repository {
         self.remoteRepository = remoteRepository
     }
     
-    func getLocations(with woeIds: [Int], completion: @escaping (Result) -> ()) {
+    func getLocations(completion: @escaping (Result) -> ()) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            return self?.remoteRepository.getLocations(with: woeIds, completion: completion)
+            guard let safeSelf = self else { return }
+            
+            let woeIds = UserDefaults.getWoeIds()
+            return safeSelf.remoteRepository.getLocations(with: woeIds, completion: completion)
         }
     }
     
     func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            return self?.remoteRepository.getLocation(with: woeId, completion: completion)
+            return self?.remoteRepository.getLocation(with: woeId) { result in
+                switch result {
+                case .success(_):
+                    UserDefaults.appendWoeIds([woeId])
+                case .failure(_):
+                    break
+                }
+                completion(result)
+            }
         }
     }
 }
