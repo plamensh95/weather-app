@@ -12,11 +12,20 @@ struct APIEndpoints {
     static let kStaticImageResourcePNG64 = "https://www.metaweather.com/static/img/weather/png/64"
 }
 
-struct Message {
+struct Title {
     static let kOK = "OK"
+    static let kGO = "GO"
     static let kErrorOccurred = "An error occurred"
+    static let kAddLocation = "Add Location"
+}
+
+struct Message {
     static let kReachServerError = "Couldn't reach server."
     static let kParseServerResponseError = "Couldn't parse server response."
+    static let kAddLocation = "You can add location by entering it's corresponding WoeId."
+    static let kEnterWoeId = "Enter WoeId here..."
+    static let kWrongWoeId = "The WoeId you entered is invalid."
+    static let kNotFoundWoeId = "Couldn't find a location matching this WoeId"
 }
 
 struct ForecastDetails {

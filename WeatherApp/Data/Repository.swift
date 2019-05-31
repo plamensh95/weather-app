@@ -19,4 +19,10 @@ class Repository {
             return self?.remoteRepository.getLocations(with: woeIds, completion: completion)
         }
     }
+    
+    func getLocation(with woeId: Int, completion: @escaping (Result) -> ()) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            return self?.remoteRepository.getLocation(with: woeId, completion: completion)
+        }
+    }
 }

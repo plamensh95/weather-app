@@ -34,6 +34,26 @@ class LocationsViewModel {
             }
         }
     }
+    
+    func addLocation(with woeIdString: String?) {
+        guard let safeWoeIdString = woeIdString, let safeWoeId = Int(safeWoeIdString) else {
+            displayErrorMessage?(Message.kWrongWoeId)
+            return
+        }
+        
+        repository.getLocation(with: safeWoeId) { result in
+            switch result {
+            case .success(let value):
+                if let fetchedLocation = value as? Location {
+                    self.locations.append(fetchedLocation)
+                } else {
+                    self.displayErrorMessage?(Message.kNotFoundWoeId)
+                }
+            case .failure(let error):
+                self.displayErrorMessage?(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - Table View Methods

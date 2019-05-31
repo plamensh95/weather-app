@@ -12,6 +12,9 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
 
     @IBOutlet private weak var tableView: UITableView!
     
+    lazy var addLocationButton = UIBarButtonItem(title: Title.kAddLocation, style: .plain,
+                                                 target: self, action: #selector(addLocation))
+    
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
@@ -29,9 +32,10 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
+        navigationItem.setRightBarButton(addLocationButton, animated: true)
     }
     
+    // MARK: - Setup
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.6007251143, green: 0.8508604765, blue: 0.917899549, alpha: 1)
         tableView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
@@ -46,21 +50,29 @@ class LocationsViewController: UIViewController, StoryboardInitializable {
         }
         viewModel?.displayErrorMessage = { errorMessage in
             DispatchQueue.main.async {
-                UIAlertController(title: Message.kErrorOccurred, message: errorMessage,
-                                  defaultActionButtonTitle: Message.kOK, tintColor: .blue).show()
+                AlertManager.sharedInstance.showErrorAlert(message: errorMessage)
             }
         }
         viewModel?.feedContent()
     }
-    
-    @objc private func reloadContent() {
-        viewModel?.feedContent()
-    }
-    
+
+    // MARK: - Navigation
     private func navigateToForecastsScreen(with forecasts: [Forecast]) {
         let forecastsVC = ForecastsViewController.initFrom(storyboard: .Forecasts)
         forecastsVC.viewModel = ForecastsViewModel(forecasts: forecasts)
         navigationController?.pushViewController(forecastsVC)
+    }
+    
+    // MARK: - Actions
+    @objc private func reloadContent() {
+        viewModel?.feedContent()
+    }
+    
+    @objc private func addLocation() {
+        AlertManager.sharedInstance.showInputAlert(with: Title.kAddLocation, message: Message.kAddLocation,
+                                                   inputPlaceholder: Message.kEnterWoeId) { inputWoeId in
+            self.viewModel?.addLocation(with: inputWoeId)
+        }
     }
 }
 
